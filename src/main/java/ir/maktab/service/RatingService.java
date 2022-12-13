@@ -1,11 +1,16 @@
 package ir.maktab.service;
 
+import ir.maktab.data.entity.Course;
+import ir.maktab.data.entity.Student;
 import ir.maktab.data.entity.StudentCourseRating;
 import ir.maktab.repository.CourseRepo;
 import ir.maktab.repository.StudentCourseRatingRepo;
 import ir.maktab.repository.StudentRepo;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RatingService {
     private static final RatingService ratingService = new RatingService();
@@ -28,15 +33,32 @@ public class RatingService {
     }
 
     public void readRecords() {//todo main args: pass a file name
-        try(InputStream input = new FileInputStream("rating.txt")){
-            int data = input.read();
-            while (data != -1){
-                System.out.println(data);
-                data = input.read();
+        try(RandomAccessFile input = new RandomAccessFile("rating.txt","r")){
+            String line = input.readLine();
+            while (line != null){
+                System.out.println(line);
+                String[] split = line.split(",");
+
+                Course course = new Course();
+                course.setName(split[0]);
+
+                Student student = new Student();
+                student.setName(split[1]);
+
+                SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date date = formatter.parse(split[2]);
+                float rateNum = Float.parseFloat(split[3]);
+                String comment = split[4];
+                StudentCourseRating rating = new StudentCourseRating(student,course,date,rateNum,comment) ;
+                addRating(rating);
+
+                line = input.readLine();
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
             throw new RuntimeException(e);
         }
     }

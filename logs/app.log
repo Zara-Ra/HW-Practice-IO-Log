@@ -1,0 +1,44 @@
+23:51:26.435 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+23:51:26.491 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+23:51:26.493 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+23:51:26.493 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+23:54:16.093 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+23:54:16.116 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+23:54:16.117 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+23:54:16.119 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+23:57:16.210 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+23:57:16.415 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+23:57:16.420 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+23:57:16.421 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+23:57:48.974 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+23:57:49.180 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+23:57:49.185 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+23:57:49.186 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+23:58:09.267 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+23:58:09.318 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+23:58:09.320 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+23:58:09.320 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+00:01:48.523 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:01:48.546 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+00:01:48.548 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+00:01:48.548 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+00:03:03.852 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:03:03.879 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+00:03:03.880 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+00:03:03.880 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+00:07:37.272 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:07:37.303 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+00:07:37.304 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+00:07:37.304 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+00:09:48.475 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:09:48.502 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+00:09:48.502 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+00:09:48.502 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+00:12:55.259 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:12:55.288 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+00:12:55.289 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+00:12:55.289 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units
+00:14:27.791 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:14:27.820 [main] INFO  o.h.j.b.i.PersistenceXmlParser - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
+00:14:27.820 [main] DEBUG o.h.j.HibernatePersistenceProvider - Located and parsed 0 persistence units; checking each
+00:14:27.820 [main] DEBUG o.h.j.HibernatePersistenceProvider - Found no matching persistence units

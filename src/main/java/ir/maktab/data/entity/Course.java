@@ -16,7 +16,7 @@ public class Course implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    //@Column(unique = true)
+    @Column(unique = true)
     private String name;
     @OneToMany(mappedBy = "course")
     private List<StudentCourseRating> ratingList;
