@@ -1,22 +1,29 @@
 package ir.maktab.data.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @IdClass(StudentCourseRatingId.class)
 @Entity
 public class StudentCourseRating {
     @Id
     @ManyToOne
-    Student student;
+    private Student student;
     @Id
     @ManyToOne
-    Course course;
+    private Course course;
 
     @Temporal(value = TemporalType.TIME)
-    Date time;
+    private Date time;
     @Temporal(value = TemporalType.DATE)
-    Date date;
+    private Date date;
 
-    String comment;
+    private String comment;
 }

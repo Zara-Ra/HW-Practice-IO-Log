@@ -18,5 +18,5 @@ public class Course implements Serializable {
     private long id;
     private String name;
     @OneToMany(mappedBy = "course")
-    List<StudentCourseRating> ratingList;
+    private List<StudentCourseRating> ratingList;
 }
