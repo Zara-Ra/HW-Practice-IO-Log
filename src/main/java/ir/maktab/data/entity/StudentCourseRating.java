@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -12,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @IdClass(StudentCourseRatingId.class)
 @Entity
-public class StudentCourseRating {
+public class StudentCourseRating implements Serializable {
     @Id
     @ManyToOne
     private Student student;
@@ -24,6 +25,6 @@ public class StudentCourseRating {
     private Date time;
     @Temporal(value = TemporalType.DATE)
     private Date date;
-
+    private float rating;
     private String comment;
 }

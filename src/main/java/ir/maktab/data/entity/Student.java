@@ -16,6 +16,7 @@ import java.util.List;
 public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(unique = true)
     private String name;
     @OneToMany(mappedBy = "student")
     private List<StudentCourseRating> ratingList = new ArrayList<>();
