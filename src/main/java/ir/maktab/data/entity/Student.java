@@ -1,15 +1,15 @@
 package ir.maktab.data.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -20,5 +20,6 @@ public class Student implements Serializable {
     @Column(unique = true)
     private String name;
     @OneToMany(mappedBy = "student")
+    @EqualsAndHashCode.Exclude
     private List<StudentCourseRating> ratingList = new ArrayList<>();
 }

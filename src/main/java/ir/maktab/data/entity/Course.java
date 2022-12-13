@@ -1,14 +1,14 @@
 package ir.maktab.data.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -18,6 +18,7 @@ public class Course implements Serializable {
     private long id;
     @Column(unique = true)
     private String name;
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "course")
     private List<StudentCourseRating> ratingList;
 }

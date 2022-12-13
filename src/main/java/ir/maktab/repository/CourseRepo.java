@@ -1,8 +1,12 @@
 package ir.maktab.repository;
 
 import ir.maktab.data.entity.Course;
+import ir.maktab.data.entity.Student;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import java.util.Optional;
 
 public class CourseRepo {
     private static final CourseRepo courseRepo = new CourseRepo();
@@ -17,5 +21,21 @@ public class CourseRepo {
         em.persist(course);
         em.getTransaction().commit();
         em.close();
+    }
+    public Optional<Course> findByName(String name) {
+        Course result;
+        try {
+            EntityManager em = EntityManagerFactoryProducer.emf.createEntityManager();
+            em.getTransaction().begin();
+            Query query = em.createQuery("FROM Course c WHERE c.name=:name");
+            query.setParameter("name", name);
+            result = (Course) query.getSingleResult();
+            em.getTransaction().commit();
+            em.close();
+        } catch (
+                NoResultException e) {
+            result = null;
+        }
+        return Optional.ofNullable(result);
     }
 }
