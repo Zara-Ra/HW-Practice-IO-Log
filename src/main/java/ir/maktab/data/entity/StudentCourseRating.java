@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @IdClass(StudentCourseRatingId.class)
 @Entity
-public class StudentCourseRating implements Serializable {
+public class StudentCourseRating {
     @Id
     @ManyToOne
     private Student student;
