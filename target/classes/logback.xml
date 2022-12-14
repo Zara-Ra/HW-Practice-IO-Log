@@ -1,27 +1,23 @@
 <configuration debuge="false">
-    <property name="HOME_LOG" value="logs/app.log"/>
+    <property name="HOME_LOG" value="logs"/>
 
     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${HOME_LOG}</file>
+        <file>${HOME_LOG}/app.log</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <!-- each archived file, size max 10MB -->
-            <maxFileSize>10MB</maxFileSize>
-            <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
-            <totalSizeCap>20GB</totalSizeCap>
-            <!-- 60 days to keep -->
-            <maxHistory>60</maxHistory>
+            <fileNamePattern>${HOME_LOG}/archived/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <!-- each archived file, size max 1KB -->
+            <maxFileSize>1MB</maxFileSize>
+            <!-- total size of all archive files, if total size > 1MB, it will delete old archived file -->
+            <totalSizeCap>1MB</totalSizeCap>
+            <!-- 14 days to keep -->
+            <maxHistory>14</maxHistory>
         </rollingPolicy>
         <append>true</append>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} - %-5level - %msg%n</pattern>
         </encoder>
     </appender>
-
-    <logger name="fileLogger" level="INFO" additivity ="false" >
-        <appender-ref ref="FILE-ROLLING" />
-    </logger>
 
     <root level="INFO">
         <appender-ref ref="FILE-ROLLING"/>

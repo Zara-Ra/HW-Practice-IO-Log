@@ -1,29 +1,57 @@
-2022-12-14 01:52:54 - INFO  - Input File Opened Successfully
-2022-12-14 01:52:54 - INFO  - HHH000204: Processing PersistenceUnitInfo [name: PU]
-2022-12-14 01:52:54 - INFO  - HHH000412: Hibernate ORM core version 5.6.14.Final
-2022-12-14 01:52:54 - INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-14 01:52:54 - WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-12-14 01:52:54 - INFO  - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/HW17IO]
-2022-12-14 01:52:54 - INFO  - HHH10001001: Connection properties: {password=****, user=postgres}
-2022-12-14 01:52:54 - INFO  - HHH10001003: Autocommit mode: false
-2022-12-14 01:52:54 - INFO  - HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-12-14 01:52:55 - INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2022-12-14 01:52:55 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@31e2232f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2022-12-14 01:52:55 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@c017175] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2022-12-14 01:52:55 - INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-14 01:52:56 - INFO  - Student Added To Database
-2022-12-14 01:52:56 - INFO  - Course Added To Database
-2022-12-14 01:52:56 - INFO  - Record Number 1 Added to Database Successfully
-2022-12-14 01:52:56 - INFO  - Student Added To Database
-2022-12-14 01:52:56 - INFO  - Course Added To Database
-2022-12-14 01:52:56 - INFO  - Record Number 2 Added to Database Successfully
-2022-12-14 01:52:56 - INFO  - Student Added To Database
-2022-12-14 01:52:56 - INFO  - Course Added To Database
-2022-12-14 01:52:56 - INFO  - Record Number 3 Added to Database Successfully
-2022-12-14 01:52:56 - INFO  - Student Added To Database
-2022-12-14 01:52:56 - INFO  - Course Added To Database
-2022-12-14 01:52:56 - INFO  - Record Number 4 Added to Database Successfully
-2022-12-14 01:52:56 - INFO  - Student Added To Database
-2022-12-14 01:52:56 - INFO  - Course Added To Database
-2022-12-14 01:52:56 - INFO  - Record Number 5 Added to Database Successfully
-2022-12-14 01:52:56 - INFO  - Reached End Of File
+2022-12-14 16:30:59 - INFO  - Input File Opened Successfully
+2022-12-14 16:30:59 - INFO  - HHH000204: Processing PersistenceUnitInfo [name: PU]
+2022-12-14 16:30:59 - INFO  - HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-14 16:30:59 - INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-14 16:31:00 - WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-12-14 16:31:00 - INFO  - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/HW17IO]
+2022-12-14 16:31:00 - INFO  - HHH10001001: Connection properties: {password=****, user=postgres}
+2022-12-14 16:31:00 - INFO  - HHH10001003: Autocommit mode: false
+2022-12-14 16:31:00 - INFO  - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-12-14 16:31:00 - INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-14 16:31:01 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4c86da0c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2022-12-14 16:31:01 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4f94e148] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2022-12-14 16:31:01 - INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-14 16:31:02 - INFO  - New Record Added To Database Successfully
+2022-12-14 16:31:02 - INFO  - New Record Added To Database Successfully
+2022-12-14 16:31:02 - INFO  - New Record Added To Database Successfully
+2022-12-14 16:31:02 - INFO  - New Record Added To Database Successfully
+2022-12-14 16:31:02 - INFO  - New Record Added To Database Successfully
+2022-12-14 16:31:02 - INFO  - Reached End Of File
+2022-12-14 16:33:12 - INFO  - ***Input File Opened Successfully
+2022-12-14 16:33:12 - INFO  - HHH000204: Processing PersistenceUnitInfo [name: PU]
+2022-12-14 16:33:12 - INFO  - HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-14 16:33:12 - INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-14 16:33:13 - WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-12-14 16:33:13 - INFO  - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/HW17IO]
+2022-12-14 16:33:13 - INFO  - HHH10001001: Connection properties: {password=****, user=postgres}
+2022-12-14 16:33:13 - INFO  - HHH10001003: Autocommit mode: false
+2022-12-14 16:33:13 - INFO  - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-12-14 16:33:13 - INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-14 16:33:14 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6a6f6c7e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2022-12-14 16:33:14 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@69d45cca] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2022-12-14 16:33:14 - INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-14 16:33:14 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:33:15 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:33:15 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:33:15 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:33:15 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:33:15 - INFO  - ***Reached End Of File
+2022-12-14 16:35:41 - INFO  - ***Input File Opened Successfully
+2022-12-14 16:35:41 - INFO  - HHH000204: Processing PersistenceUnitInfo [name: PU]
+2022-12-14 16:35:41 - INFO  - HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-14 16:35:42 - INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-14 16:35:42 - WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-12-14 16:35:42 - INFO  - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/HW17IO]
+2022-12-14 16:35:42 - INFO  - HHH10001001: Connection properties: {password=****, user=postgres}
+2022-12-14 16:35:42 - INFO  - HHH10001003: Autocommit mode: false
+2022-12-14 16:35:42 - INFO  - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-12-14 16:35:42 - INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-14 16:35:43 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@30c1da48] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2022-12-14 16:35:43 - INFO  - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7fb48179] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2022-12-14 16:35:43 - INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-14 16:35:44 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:35:44 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:35:44 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:35:44 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:35:44 - INFO  - ***New Record Added To Database Successfully
+2022-12-14 16:35:44 - INFO  - ***Reached End Of File

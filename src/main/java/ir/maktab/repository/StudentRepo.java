@@ -25,6 +25,10 @@ public class StudentRepo {
         em.close();
     }
 
+    public void save(EntityManager em, Student student) {
+        em.persist(student);
+    }
+
     public Optional<Student> findByName(String name) {
         Student result;
         try {

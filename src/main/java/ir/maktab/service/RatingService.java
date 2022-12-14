@@ -4,11 +4,13 @@ import ir.maktab.data.entity.Course;
 import ir.maktab.data.entity.Student;
 import ir.maktab.data.entity.StudentCourseRating;
 import ir.maktab.repository.CourseRepo;
+import ir.maktab.repository.EntityManagerFactoryProducer;
 import ir.maktab.repository.StudentCourseRatingRepo;
 import ir.maktab.repository.StudentRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.text.ParseException;
@@ -29,27 +31,44 @@ public class RatingService {
     private final StudentRepo studentRepo = StudentRepo.getInstance();
     private final CourseRepo courseRepo = CourseRepo.getInstance();
     private final StudentCourseRatingRepo studentCourseRatingRepo = StudentCourseRatingRepo.getInstance();
-    private Logger fileLogger = LoggerFactory.getLogger(RatingService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RatingService.class);
 
-    public void addStudentCourseRating(StudentCourseRating rating) {//todo should i open an em here? because if student not saved dont save other
-        Optional<Student> optionalStudent = studentRepo.findByName(rating.getStudent().getName());
-        optionalStudent.ifPresentOrElse(rating::setStudent, () -> studentRepo.save(rating.getStudent()));
-        fileLogger.info("Student Added To Database");
+    public void addStudentCourseRating(StudentCourseRating rating) {
+        EntityManager em = EntityManagerFactoryProducer.emf.createEntityManager();
+        em.getTransaction().begin();
+        try {
+            Optional<Student> optionalStudent = studentRepo.findByName(rating.getStudent().getName());
+            optionalStudent.ifPresentOrElse(rating::setStudent, () -> {
+                studentRepo.save(em, rating.getStudent());
+                LOGGER.debug("***New Student Persisted");
+            });
 
-        Optional<Course> optionalCourse = courseRepo.findByName(rating.getCourse().getName());
-        optionalCourse.ifPresentOrElse(rating::setCourse, () -> courseRepo.save(rating.getCourse()));
-        fileLogger.info("Course Added To Database");
+            Optional<Course> optionalCourse = courseRepo.findByName(rating.getCourse().getName());
+            optionalCourse.ifPresentOrElse(rating::setCourse, () -> {
+                courseRepo.save(em, rating.getCourse());
+                LOGGER.debug("***New Course Persisted");
+            });
 
-        studentCourseRatingRepo.save(rating);
+            studentCourseRatingRepo.save(em, rating);
+            LOGGER.debug("***StudentCourseRating Persisted");
+            em.getTransaction().commit();
+            em.close();
+            LOGGER.info("***New Record Added To Database Successfully");
+        } catch (Exception e) {
+            LOGGER.error("***Exception Occurred While Committing Record");
+            em.getTransaction().rollback();
+            LOGGER.info("***Record Rolled Back");
+            em.close();
+        }
     }
 
-    public void readRecords() {//todo main args: pass a file name
+    public void readRecords() {
         try (RandomAccessFile input = new RandomAccessFile("rating.txt", "r")) {
-            fileLogger.info("Input File Opened Successfully");
+            LOGGER.info("***Input File Opened Successfully");
             String line = input.readLine();
             int lineNumber = 1;
             while (line != null) {
-                fileLogger.debug("Line number {} Read",lineNumber);
+                LOGGER.debug("***Line number {} Read", lineNumber);
                 String[] split = line.split(",");
 
                 Course course = new Course();
@@ -63,18 +82,17 @@ public class RatingService {
                 float rateNum = Float.parseFloat(split[3]);
                 String comment = split[4];
                 StudentCourseRating rating = new StudentCourseRating(student, course, date, rateNum, comment);
-                fileLogger.debug("Line number {} Parsed",lineNumber);
+                LOGGER.debug("***Line number {} Parsed", lineNumber);
 
                 addStudentCourseRating(rating);
-                fileLogger.info("Record Number {} Added to Database Successfully",lineNumber);
                 line = input.readLine();
                 lineNumber++;
             }
-            fileLogger.info("Reached End Of File");
+            LOGGER.info("***Reached End Of File");
         } catch (IOException e) {
-            fileLogger.error("IO Exception");
+            LOGGER.error("***IO Exception");
         } catch (ParseException e) {
-            fileLogger.error("Parse Exception, Invalid Data Format");
+            LOGGER.error("***Parse Exception, Invalid Data Format");
         }
     }
 }
