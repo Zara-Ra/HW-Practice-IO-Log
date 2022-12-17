@@ -22,4 +22,9 @@ public class Student implements Serializable {
     @OneToMany(mappedBy = "student")
     @EqualsAndHashCode.Exclude
     private List<StudentCourseRating> ratingList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

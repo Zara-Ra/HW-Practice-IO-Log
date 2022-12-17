@@ -21,4 +21,9 @@ public class Course implements Serializable {
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "course")
     private List<StudentCourseRating> ratingList;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

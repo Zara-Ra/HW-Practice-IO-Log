@@ -33,66 +33,73 @@ public class RatingService {
     private final StudentCourseRatingRepo studentCourseRatingRepo = StudentCourseRatingRepo.getInstance();
     private static final Logger LOGGER = LoggerFactory.getLogger(RatingService.class);
 
-    public void addStudentCourseRating(StudentCourseRating rating) {
+    private void addStudentCourseRating(StudentCourseRating rating) {
         EntityManager em = EntityManagerFactoryProducer.emf.createEntityManager();
         em.getTransaction().begin();
         try {
             Optional<Student> optionalStudent = studentRepo.findByName(rating.getStudent().getName());
             optionalStudent.ifPresentOrElse(rating::setStudent, () -> {
                 studentRepo.save(em, rating.getStudent());
-                LOGGER.debug("***New Student Persisted");
+                LOGGER.debug("*** Student({}) Persisted ***", rating.getStudent());
             });
 
             Optional<Course> optionalCourse = courseRepo.findByName(rating.getCourse().getName());
             optionalCourse.ifPresentOrElse(rating::setCourse, () -> {
                 courseRepo.save(em, rating.getCourse());
-                LOGGER.debug("***New Course Persisted");
+                LOGGER.debug("*** Course({}) Persisted ***", rating.getCourse());
             });
 
             studentCourseRatingRepo.save(em, rating);
-            LOGGER.debug("***StudentCourseRating Persisted");
+            LOGGER.debug("*** StudentCourseRating Persisted ***");
             em.getTransaction().commit();
             em.close();
-            LOGGER.info("***New Record Added To Database Successfully");
+            LOGGER.info("*** New Record Added To Database Successfully ***");
         } catch (Exception e) {
-            LOGGER.error("***Exception Occurred While Committing Record");
+            LOGGER.error("*** Exception Occurred While Committing Record Of Course:{} Student:{} ***"
+                    , rating.getCourse(), rating.getStudent());
             em.getTransaction().rollback();
-            LOGGER.info("***Record Rolled Back");
+            LOGGER.info("*** Record Rolled Back ***");
             em.close();
         }
     }
 
     public void readRecords() {
-        try (RandomAccessFile input = new RandomAccessFile("rating.txt", "r")) {
-            LOGGER.info("***Input File Opened Successfully");
+        int lineNumber = 0;
+        try (RandomAccessFile input = new RandomAccessFile("inputs\\rating.csv", "r")) {
+            LOGGER.info("*** Input File Opened Successfully ***");
             String line = input.readLine();
-            int lineNumber = 1;
             while (line != null) {
-                LOGGER.debug("***Line number {} Read", lineNumber);
-                String[] split = line.split(",");
-
-                Course course = new Course();
-                course.setName(split[0]);
-
-                Student student = new Student();
-                student.setName(split[1]);
-
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date date = formatter.parse(split[2]);
-                float rateNum = Float.parseFloat(split[3]);
-                String comment = split[4];
-                StudentCourseRating rating = new StudentCourseRating(student, course, date, rateNum, comment);
-                LOGGER.debug("***Line number {} Parsed", lineNumber);
-
-                addStudentCourseRating(rating);
-                line = input.readLine();
                 lineNumber++;
+                LOGGER.debug("*** Line Number {} Read ***", lineNumber);
+                String[] split = line.split(",");
+                try {
+                    Course course = new Course();
+                    course.setName(split[0]);
+
+                    Student student = new Student();
+                    student.setName(split[1]);
+
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Date date = formatter.parse(split[2]);
+                    float rateNum = Float.parseFloat(split[3]);
+                    String comment = split[4];
+                    StudentCourseRating rating = new StudentCourseRating(student, course, date, rateNum, comment);
+                    LOGGER.debug("*** Line Number {} Parsed ***", lineNumber);
+
+                    addStudentCourseRating(rating);
+
+                } catch (ParseException e) {
+                    LOGGER.warn("*** Parse Exception, Invalid Date Format In Line {} ***", lineNumber);
+                } catch (NumberFormatException e) {
+                    LOGGER.warn("*** NumberFormat Exception, Invalid Rating In Line {} ***", lineNumber);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    LOGGER.warn("*** Some Data Missing In Line {} ***", lineNumber);
+                }
+                line = input.readLine();
             }
-            LOGGER.info("***Reached End Of File");
+            LOGGER.info("*** Reached End Of File,Total Lines Read: {} ***", lineNumber);
         } catch (IOException e) {
-            LOGGER.error("***IO Exception");
-        } catch (ParseException e) {
-            LOGGER.error("***Parse Exception, Invalid Data Format");
+            LOGGER.error("*** Unable To Read File ***");
         }
     }
 }
