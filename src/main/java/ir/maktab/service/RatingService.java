@@ -7,15 +7,19 @@ import ir.maktab.repository.CourseRepo;
 import ir.maktab.repository.EntityManagerFactoryProducer;
 import ir.maktab.repository.StudentCourseRatingRepo;
 import ir.maktab.repository.StudentRepo;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
+import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 public class RatingService {
@@ -66,6 +70,10 @@ public class RatingService {
     public void readRecords() {
         int lineNumber = 0;
         try (RandomAccessFile input = new RandomAccessFile("inputs\\rating.csv", "r")) {
+            //Using Apache Commons
+            //File file = new File("inputs\\rating.csv");
+            //List<String> lines = FileUtils.readLines(file, String.valueOf(StandardCharsets.UTF_8));
+
             LOGGER.info("*** Input File Opened Successfully ***");
             String line = input.readLine();
             while (line != null) {

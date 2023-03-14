@@ -39,8 +39,7 @@ public class StudentRepo {
             result = (Student) query.getSingleResult();
             em.getTransaction().commit();
             em.close();
-        } catch (
-                NoResultException e) {
+        } catch (NoResultException e) {
             result = null;
         }
         return Optional.ofNullable(result);
